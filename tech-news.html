@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech News & Updates | Emergency Cleanings</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #2f64e7;
+      --dark-blue: #234372;
+      --red: #e22658;
+      --yellow: #fef22e;
+      --black: #000000;
+      --white: #ffffff;
+      --light-gray: #f7f7f7;
+      --mid-gray: #dbdbdb;
+      --text-dark: #1a1a2e;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--black);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--white);
+      border-bottom: 2px solid var(--mid-gray);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .header-phone {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark-blue);
+      text-decoration: none;
+      border: 2px solid var(--dark-blue);
+      padding: 10px 20px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .header-phone:hover { background: var(--dark-blue); color: var(--white); }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.1s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .btn-primary:hover { background: var(--dark-blue); transform: translateY(-2px); }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, #1a3260 50%, #0f2040 100%);
+      padding: 60px 24px 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: rgba(47,100,231,0.15);
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero-badge {
+      display: inline-block;
+      background: rgba(254,242,46,0.15);
+      border: 1px solid rgba(254,242,46,0.4);
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 18px;
+    }
+    .page-hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .page-hero h1 span { color: var(--yellow); }
+    .page-hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+    }
+
+    /* ─── MAIN LAYOUT ─── */
+    .news-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ─── ENTRIES FEED ─── */
+    .entries-feed { display: flex; flex-direction: column; gap: 32px; }
+
+    .entry-card {
+      background: var(--white);
+      border: 1.5px solid var(--mid-gray);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .entry-card:hover {
+      box-shadow: 0 10px 32px rgba(47,100,231,0.10);
+      transform: translateY(-2px);
+    }
+
+    .entry-header {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .entry-meta { display: flex; flex-direction: column; gap: 8px; }
+    .entry-date-row { display: flex; align-items: center; gap: 10px; }
+    .entry-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.3px;
+    }
+    .entry-dot { color: var(--mid-gray); font-size: 10px; }
+    .entry-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+    .tag-announcement { background: rgba(47,100,231,0.12); color: var(--blue); }
+    .tag-pay { background: rgba(47,160,0,0.12); color: #1d8a00; }
+    .tag-ops { background: rgba(226,38,88,0.12); color: var(--red); }
+    .tag-policy { background: rgba(212,160,0,0.15); color: #a07800; }
+    .tag-milestone { background: rgba(100,50,200,0.12); color: #5a2fbf; }
+    .tag-opportunity { background: rgba(0,150,136,0.12); color: #00796b; }
+
+    .entry-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--mid-gray);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      margin-top: 4px;
+    }
+
+    .entry-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--dark-blue);
+      line-height: 1.25;
+      margin-bottom: 0;
+    }
+
+    .entry-body {
+      padding: 24px 32px 28px;
+    }
+    .entry-body p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .entry-body p:last-child { margin-bottom: 0; }
+    .entry-body ul {
+      margin: 0 0 16px 0;
+      padding-left: 20px;
+    }
+    .entry-body ul li {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+    .entry-highlight {
+      background: rgba(47,100,231,0.06);
+      border-left: 4px solid var(--blue);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 15px;
+      color: var(--dark-blue);
+      font-weight: 500;
+    }
+    .entry-highlight.yellow {
+      background: rgba(254,242,46,0.18);
+      border-left-color: #d4a000;
+      color: #5a3e00;
+    }
+    .entry-highlight.red {
+      background: rgba(226,38,88,0.07);
+      border-left-color: var(--red);
+      color: #7a0020;
+    }
+    .entry-footer {
+      padding: 16px 32px;
+      background: var(--light-gray);
+      border-top: 1px solid var(--mid-gray);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .entry-footer-note {
+      font-size: 12px;
+      color: #888;
+    }
+    .entry-footer-sig {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--dark-blue);
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar { display: flex; flex-direction: column; gap: 28px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1.5px solid var(--mid-gray);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .sidebar-card-header {
+      background: var(--dark-blue);
+      padding: 16px 20px;
+    }
+    .sidebar-card-header h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-card-body { padding: 20px; }
+
+    /* Archive list */
+    .archive-list { list-style: none; }
+    .archive-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .archive-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .archive-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark-blue);
+    }
+    .archive-title {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    /* Category filter */
+    .cat-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cat-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      cursor: default;
+    }
+
+    /* CTA sidebar */
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--dark-blue), #1a3260);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .sidebar-cta h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .sidebar-cta p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--dark-blue);
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn-yellow:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark-blue);
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px 28px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 14px; max-width: 280px; }
+    footer h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 8px; }
+    footer ul li a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    footer ul li a:hover { color: var(--yellow); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .news-layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .page-hero h1 { font-size: 30px; }
+      .entry-header { flex-direction: column; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 600px) {
+      .header-phone { display: none; }
+      .entry-header, .entry-body, .entry-footer { padding-left: 20px; padding-right: 20px; }
+      .entry-title { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-inner">
+    <a href="https://emergencycleanings.com" class="logo" style="margin: 0; gap: 0; flex-shrink: 0; text-decoration: none;">
+      <img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" style="height: 75px; width: auto;" />
+    </a>
+    <div style="flex: 1; text-align: center;">
+      <div style="font-size: 26px; font-weight: 800; color: var(--dark-blue); line-height: 1.1;">Tech News & Updates</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px; flex-shrink: 0;">
+      <a href="tel:8333464652" class="header-phone">📞 833-346-4652</a>
+      <a href="https://techs.emergencycleanings.com#apply" class="btn-primary">Apply Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-badge">📣 Official Updates</div>
+    <h1>Tech <span>News & Updates</span></h1>
+    <p>The latest from Emergency Cleanings — policy changes, pay updates, network milestones, and everything else you need to know as part of our tech network.</p>
+  </div>
+</section>
+
+<!-- ── MAIN CONTENT ── -->
+<div class="news-layout">
+
+  <!-- ENTRIES FEED -->
+  <div class="entries-feed">
+
+    <!-- ─── ENTRY 001 ─── -->
+    <article class="entry-card">
+      <div class="entry-header">
+        <div class="entry-meta">
+          <div class="entry-date-row">
+            <span class="entry-date">June 21, 2026</span>
+            <span class="entry-dot">●</span>
+            <span class="entry-tag tag-announcement">Announcement</span>
+          </div>
+          <h2 class="entry-title">Welcome to the EC Tech Updates Page</h2>
+        </div>
+        <div class="entry-number">#001</div>
+      </div>
+      <div class="entry-body">
+        <p>We're launching this page as a dedicated home for everything you need to stay informed as part of the Emergency Cleanings tech network. Whether it's a policy update, a pay change, a new opportunity, or news about where the network is headed — you'll find it here first.</p>
+
+        <div class="entry-highlight">
+          <strong>Bookmark this page.</strong> This is now the official source for network updates. We'll post here before pushing anything out by phone or text.
+        </div>
+
+        <p>Here's what you can expect from these updates going forward:</p>
+        <ul>
+          <li><strong>Pay & Earnings</strong> — any changes to job rates, payment cycles, or bonus structures</li>
+          <li><strong>Policy Updates</strong> — changes to how jobs are assigned, completed, or reported</li>
+          <li><strong>Network Growth</strong> — new markets, new job types, and milestones we hit together</li>
+          <li><strong>Opportunities</strong> — premium jobs, certifications, and ways to earn more</li>
+          <li><strong>Operations</strong> — scheduling, dispatch, and process improvements that affect your day-to-day</li>
+        </ul>
+
+        <p>We started this network to build something that actually works for independent techs — reliable jobs, consistent pay, real support. This page is part of that commitment. We'll be transparent, direct, and timely.</p>
+
+        <div class="entry-highlight yellow">
+          Got feedback or something you want us to address in a future update? Call dispatch at 833-346-4652 or reach out directly. We read everything.
+        </div>
+      </div>
+      <div class="entry-footer">
+        <span class="entry-footer-note">First post — more updates coming regularly</span>
+        <span class="entry-footer-sig">— The Emergency Cleanings Team</span>
+      </div>
+    </article>
+
+    <!-- future entries go above this comment -->
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Archive -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <h3>📅 Recent Updates</h3>
+      </div>
+      <div class="sidebar-card-body">
+        <ul class="archive-list">
+          <li>
+            <div>
+              <div class="archive-date">Jun 21, 2026</div>
+              <div class="archive-title">Welcome to Tech Updates</div>
+            </div>
+            <span class="entry-tag tag-announcement" style="font-size:10px; padding: 2px 8px;">New</span>
+          </li>
+          <!-- future archive entries go here -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <h3>🏷️ Update Types</h3>
+      </div>
+      <div class="sidebar-card-body">
+        <div class="cat-list">
+          <span class="cat-pill tag-announcement">Announcement</span>
+          <span class="cat-pill tag-pay">Pay & Earnings</span>
+          <span class="cat-pill tag-ops">Operations</span>
+          <span class="cat-pill tag-policy">Policy</span>
+          <span class="cat-pill tag-milestone">Milestone</span>
+          <span class="cat-pill tag-opportunity">Opportunity</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="sidebar-cta">
+      <h3>Not on the network yet?</h3>
+      <p>Join hundreds of independent techs already earning with Emergency Cleanings.</p>
+      <a href="https://techs.emergencycleanings.com#apply" class="btn-yellow">Apply to Join →</a>
+    </div>
+
+    <!-- Contact -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <h3>📞 Contact Dispatch</h3>
+      </div>
+      <div class="sidebar-card-body">
+        <p style="font-size: 14px; color: #555; margin-bottom: 12px; line-height: 1.6;">Questions about a job, payment, or anything in these updates?</p>
+        <a href="tel:8333464652" style="font-size: 20px; font-weight: 800; color: var(--dark-blue); text-decoration: none; display: block; margin-bottom: 6px;">833-346-4652</a>
+        <p style="font-size: 12px; color: #888;">Available during dispatch hours</p>
+      </div>
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" style="height: 32px; width: auto; margin-bottom: 8px; filter: brightness(0) invert(1);" />
+      <p>The leading specialty cleaning network for independent technicians. Emergency Cleanings handles the business side — you handle the work.</p>
+    </div>
+    <div>
+      <h4>For Techs</h4>
+      <ul>
+        <li><a href="https://techs.emergencycleanings.com#apply">Apply to Join</a></li>
+        <li><a href="https://techs.emergencycleanings.com">Tech Portal</a></li>
+        <li><a href="#">Payment FAQ</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://emergencycleanings.com">Main Site</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Emergency Cleanings. All rights reserved.</p>
+    <p>tech-news.emergencycleanings.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
