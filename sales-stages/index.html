@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Sales Stage Definitions | Emergency Cleanings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #2f64e7;
+      --dark-blue: #234372;
+      --red: #e22658;
+      --yellow: #fef22e;
+      --black: #000000;
+      --white: #ffffff;
+      --light-gray: #f7f7f7;
+      --mid-gray: #dbdbdb;
+      --text-dark: #1a1a2e;
+      --green: #1f9d55;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--white);
+      border-bottom: 2px solid var(--mid-gray);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo img { height: 48px; display: block; }
+    .header-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--dark-blue);
+      background: var(--yellow);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, #1a3260 50%, #0f2040 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 64px 24px 72px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 460px; height: 460px;
+      border-radius: 50%;
+      background: rgba(47,100,231,0.15);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: -60px;
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: rgba(226,38,88,0.08);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(254,242,46,0.15);
+      border: 1px solid rgba(254,242,46,0.4);
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      max-width: 720px;
+    }
+    .hero h1 span { color: var(--yellow); }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.8);
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+    .hero-rules { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-rule {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 9999px;
+    }
+    .hero-rule strong { color: var(--yellow); }
+
+    /* LAYOUT */
+    section { max-width: 1100px; margin: 0 auto; padding: 56px 24px 8px; }
+    .section-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .section-sub { font-size: 15px; color: #555; max-width: 720px; margin-bottom: 28px; }
+
+    /* STAGE MAP TABLE */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+      border: 1px solid var(--mid-gray);
+      margin-bottom: 24px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
+    thead th {
+      background: var(--dark-blue);
+      color: var(--white);
+      text-align: left;
+      padding: 14px 16px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    tbody td { padding: 13px 16px; border-top: 1px solid #eee; vertical-align: top; }
+    tbody tr:nth-child(even) { background: var(--light-gray); }
+    tbody td:first-child { font-weight: 700; color: var(--dark-blue); white-space: nowrap; }
+
+    .pill {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+    .pill-interim { background: rgba(47,100,231,0.12); color: var(--blue); border: 1px solid rgba(47,100,231,0.35); }
+    .pill-won { background: rgba(31,157,85,0.12); color: var(--green); border: 1px solid rgba(31,157,85,0.35); }
+    .pill-ending { background: rgba(35,67,114,0.10); color: var(--dark-blue); border: 1px solid rgba(35,67,114,0.30); }
+    .pill-lost { background: rgba(226,38,88,0.10); color: var(--red); border: 1px solid rgba(226,38,88,0.30); }
+    .pill-flag { background: rgba(254,242,46,0.35); color: #6b6200; border: 1px solid rgba(180,165,0,0.4); }
+
+    .legend { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; font-size: 13px; color: #555; align-items: center; }
+
+    /* STAGE CARDS */
+    .stage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 8px; }
+    .stage-card {
+      background: var(--white);
+      border: 1px solid var(--mid-gray);
+      border-radius: 16px;
+      padding: 26px 26px 22px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      border-top: 5px solid var(--blue);
+    }
+    .stage-card.won { border-top-color: var(--green); }
+    .stage-card.lost { border-top-color: var(--red); }
+    .stage-card.na { border-top-color: #8a8a8a; }
+    .stage-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .stage-head h3 { font-size: 20px; font-weight: 800; color: var(--dark-blue); }
+    .stage-card p { font-size: 14px; color: #444; margin-bottom: 10px; }
+    .stage-card p strong { color: var(--dark-blue); }
+    .rule-box {
+      background: rgba(254,242,46,0.18);
+      border-left: 4px solid var(--yellow);
+      border-radius: 0 10px 10px 0;
+      padding: 10px 14px;
+      font-size: 13.5px;
+      margin: 12px 0;
+      color: #3a3a1a;
+    }
+    .rule-box strong { color: var(--dark-blue); text-transform: uppercase; font-size: 11.5px; letter-spacing: 1px; display:block; margin-bottom: 2px; }
+    .req-box {
+      background: rgba(47,100,231,0.06);
+      border-left: 4px solid var(--blue);
+      border-radius: 0 10px 10px 0;
+      padding: 10px 14px;
+      font-size: 13.5px;
+      margin: 12px 0;
+      color: #22314f;
+    }
+    .req-box strong { color: var(--blue); text-transform: uppercase; font-size: 11.5px; letter-spacing: 1px; display:block; margin-bottom: 2px; }
+    .next-line { font-size: 13px; color: #555; border-top: 1px dashed var(--mid-gray); padding-top: 10px; margin-top: 12px; }
+    .next-line strong { color: var(--dark-blue); }
+
+    /* GROUND RULES */
+    .ground {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, #1a3260 100%);
+      border-radius: 20px;
+      padding: 40px 36px;
+      margin: 56px auto 0;
+      max-width: 1100px;
+      color: var(--white);
+    }
+    .ground h2 { color: var(--white); }
+    .ground ol { margin: 18px 0 0 20px; }
+    .ground li { margin-bottom: 10px; font-size: 15px; color: rgba(255,255,255,0.9); }
+    .ground li::marker { color: var(--yellow); font-weight: 800; }
+
+    footer {
+      margin-top: 64px;
+      padding: 28px 24px 36px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      border-top: 2px solid var(--mid-gray);
+    }
+    footer img { height: 40px; margin-bottom: 10px; opacity: 0.9; }
+
+    @media (max-width: 820px) {
+      .hero h1 { font-size: 32px; }
+      .stage-grid { grid-template-columns: 1fr; }
+      h2 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://emergencycleanings.com">
+      <img src="https://emergencycleanings.com/wp-content/uploads/2026/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" />
+    </a>
+    <span class="header-tag">Internal &middot; Sales Playbook</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">EC Sales Operations</span>
+    <h1>Sales Stage <span>Definitions</span></h1>
+    <p class="hero-sub">Standard definitions for the lead status field in Workiz. Every lead has exactly one stage, updated after every touchpoint. Interim stages always carry a next action and a date — leads only rest in an ending stage.</p>
+    <div class="hero-rules">
+      <span class="hero-rule"><strong>No TBDs</strong> — re-stage same day</span>
+      <span class="hero-rule"><strong>Every interim stage</strong> needs a date</span>
+      <span class="hero-rule"><strong>Every lost lead</strong> gets a reason</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="section-kicker">Quick Reference</div>
+  <h2>Stage Map</h2>
+  <p class="section-sub">Which stages are workable, what each one requires before saving, and where a lead is allowed to go next.</p>
+  <div class="legend">
+    <span class="pill pill-interim">Interim</span> still being worked — must have a next action &amp; date
+    <span class="pill pill-won">Won</span>
+    <span class="pill pill-ending">Ending ✓</span> valid resting place
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Stage</th><th>Type</th><th>Required before saving</th><th>Allowed next stages</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>TBD</td><td><span class="pill pill-interim">Interim — same day only</span></td><td>Nothing — but must be re-staged same day</td><td>Any stage</td></tr>
+        <tr><td>No Answer</td><td><span class="pill pill-interim">Interim</span></td><td>Log each touch (call/SMS/email)</td><td>Follow Up, Booked, Book Later, Seeking Approval, Price Shopping, Low/No Budget, Wrong Number, No Reply-Ghosting</td></tr>
+        <tr><td>Follow Up</td><td><span class="pill pill-interim">Interim</span></td><td>Scheduled follow-up date + reason</td><td>Booked, Book Later, Seeking Approval, Price Shopping, Low/No Budget, Lost to Competitor, No Reply-Ghosting</td></tr>
+        <tr><td>Seeking Approval</td><td><span class="pill pill-interim">Interim — forced outcome</span></td><td>Approver name + expected decision date</td><td>Booked (Won), Book Later, Low/No Budget, Lost to Competitor — nothing else</td></tr>
+        <tr><td>Book Later</td><td><span class="pill pill-interim">Interim</span></td><td>Reminder date — required, no exceptions</td><td>Booked, Follow Up, Low/No Budget, Lost to Competitor, No Reply-Ghosting</td></tr>
+        <tr><td>Price Shopping</td><td><span class="pill pill-interim">Interim</span></td><td>Our quoted price + qualifying question answer</td><td>Booked, Book Later, Lost to Competitor, No Reply-Ghosting</td></tr>
+        <tr><td>Booked</td><td><span class="pill pill-won">Won — interim</span></td><td>Date, time, scope, price confirmed</td><td>Completed, Cancelled</td></tr>
+        <tr><td>Completed</td><td><span class="pill pill-won">Won</span> <span class="pill pill-ending">Ending ✓</span></td><td>Payment collected, review requested</td><td>— (new work = new lead)</td></tr>
+        <tr><td>Cancelled</td><td><span class="pill pill-lost">Lost</span> <span class="pill pill-ending">Ending ✓</span></td><td>Cancellation reason</td><td>Book Later (only if timing-related)</td></tr>
+        <tr><td>Lost to Competitor</td><td><span class="pill pill-lost">Lost</span> <span class="pill pill-ending">Ending ✓</span></td><td>Who they chose + why</td><td>— (re-open as Follow Up if they return)</td></tr>
+        <tr><td>Low/No Budget</td><td><span class="pill pill-lost">Lost</span> <span class="pill pill-ending">Ending ✓</span></td><td>Budget gap / reason</td><td>— (re-open as Follow Up if budget changes)</td></tr>
+        <tr><td>No Reply-Ghosting</td><td><span class="pill pill-lost">Lost</span> <span class="pill pill-ending">Ending ✓</span></td><td>Breakup message sent + added to nurture</td><td>— (re-open as Follow Up if they resurface)</td></tr>
+        <tr><td>Wrong Number-Bad Call</td><td><span class="pill pill-flag">Not a lead</span> <span class="pill pill-ending">Ending ✓</span></td><td>Nothing</td><td>—</td></tr>
+        <tr><td>Marketing-Sales Call</td><td><span class="pill pill-flag">Not a lead</span> <span class="pill pill-ending">Ending ✓</span></td><td>Nothing</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="section-kicker">Still Workable</div>
+  <h2>Active Pipeline — Interim Stages</h2>
+  <p class="section-sub">A lead in any of these stages is being worked. Every one of them must carry a next action and a date. A pipeline review should find zero interim leads without a scheduled next touch.</p>
+  <div class="stage-grid">
+
+    <div class="stage-card">
+      <div class="stage-head"><h3>TBD</h3><span class="pill pill-interim">Interim — same day only</span></div>
+      <p><strong>Definition:</strong> Default stage. Lead has come in but hasn't been qualified or contacted yet, or the outcome of the first contact is not yet clear.</p>
+      <div class="rule-box"><strong>Rule</strong> No TBDs. Every lead is contacted and re-staged the same day it arrives. TBD is never a valid overnight or ending stage.</div>
+      <div class="req-box"><strong>Requirements</strong> None to enter — must exit same day.</div>
+      <p class="next-line"><strong>Next stages:</strong> Any.</p>
+    </div>
+
+    <div class="stage-card">
+      <div class="stage-head"><h3>No Answer</h3><span class="pill pill-interim">Interim</span></div>
+      <p><strong>Definition:</strong> We attempted contact (call/text/email) but never reached the lead. No two-way conversation yet.</p>
+      <div class="rule-box"><strong>Rule — Contact Cadence</strong> 4-touch sequence: 2 calls, 1 SMS, and 1 email each day for 3 days. Day 5: value email. Day 7: Fresh Start offer. Day 14: final touch (two clicks each in Workiz). After Day 14 with no response &rarr; No Reply-Ghosting.</div>
+      <div class="req-box"><strong>Requirements</strong> Every touch logged in Workiz. Max life in this stage: 14 days.</div>
+      <p class="next-line"><strong>Next stages:</strong> Follow Up (they respond), Booked, Book Later, Seeking Approval, Price Shopping, Low/No Budget, Wrong Number-Bad Call, or No Reply-Ghosting (cadence exhausted).</p>
+    </div>
+
+    <div class="stage-card">
+      <div class="stage-head"><h3>Follow Up</h3><span class="pill pill-interim">Interim</span></div>
+      <p><strong>Definition:</strong> Conversation is live and a specific next touch is scheduled or owed — "call me Thursday," waiting on photos, need to send quote.</p>
+      <p><strong>Also used for — Current Clients:</strong> Contact from an existing/past customer about a completed job (complaint, praise, or question). Not a new sales opportunity — if it becomes a new job, create a new lead. Route, resolve, log the outcome.</p>
+      <div class="rule-box"><strong>Rule</strong> No naked Follow Ups — every lead here must have a scheduled follow-up date and a reason. Missed follow-up dates are the #1 pipeline leak.</div>
+      <div class="req-box"><strong>Requirements</strong> Follow-up date + what we owe them or are waiting on.</div>
+      <p class="next-line"><strong>Next stages:</strong> Booked, Book Later, Seeking Approval, Price Shopping, Low/No Budget, Lost to Competitor, No Reply-Ghosting.</p>
+    </div>
+
+    <div class="stage-card">
+      <div class="stage-head"><h3>Seeking Approval</h3><span class="pill pill-interim">Interim — forced outcome</span></div>
+      <p><strong>Definition:</strong> Lead wants to move forward but is waiting on a decision-maker or payer — spouse, landlord, property manager, insurance, HOA, or corporate approval.</p>
+      <div class="rule-box"><strong>Rule</strong> No lead stays at this stage. It must resolve to exactly one of four outcomes: 1) WON (Booked) &middot; 2) Book Later &middot; 3) Lost (Low/No Budget) &middot; 4) Lost to Competitor.</div>
+      <div class="req-box"><strong>Requirements</strong> Approver's name/role and expected decision date. Offer to speak with the approver directly.</div>
+      <p class="next-line"><strong>Next stages:</strong> Booked, Book Later, Low/No Budget, Lost to Competitor — nothing else.</p>
+    </div>
+
+    <div class="stage-card">
+      <div class="stage-head"><h3>Book Later</h3><span class="pill pill-interim">Interim</span></div>
+      <p><strong>Definition:</strong> Lead is qualified and intends to book, but the job is for a future date or they're not ready to schedule yet — timing, move-out date, event date.</p>
+      <div class="rule-box"><strong>Rule</strong> When? A reminder date is required — no exceptions. A Book Later without a date is just a lead we're losing slowly. Add to nurture campaigns while waiting.</div>
+      <div class="req-box"><strong>Requirements</strong> Reminder/follow-up date + the reason for the delay.</div>
+      <p class="next-line"><strong>Next stages:</strong> Booked, Follow Up (re-engaged, not yet booked), Low/No Budget, Lost to Competitor, No Reply-Ghosting.</p>
+    </div>
+
+    <div class="stage-card">
+      <div class="stage-head"><h3>Price Shopping</h3><span class="pill pill-interim">Interim</span></div>
+      <p><strong>Definition:</strong> Lead received our price and is comparing quotes from other companies. Not lost yet — still deciding.</p>
+      <div class="rule-box"><strong>Rule</strong> Price Shopping = Sales Failure — we did not deliver the value proposition they were expecting. Ask the qualifying question ("What would it take to earn your business today?") and log the answer. Follow up within 24&ndash;48 hours.</div>
+      <div class="req-box"><strong>Requirements</strong> Our quoted price, the qualifying question answer, and a follow-up date within 48 hours.</div>
+      <p class="next-line"><strong>Next stages:</strong> Booked, Book Later, Lost to Competitor, No Reply-Ghosting.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-kicker">Won = Booked</div>
+  <h2>Won Stages</h2>
+  <p class="section-sub">The sale is won at Booked. Completed confirms delivery and closes the lead.</p>
+  <div class="stage-grid">
+
+    <div class="stage-card won">
+      <div class="stage-head"><h3>Booked</h3><span class="pill pill-won">Won — interim</span></div>
+      <p><strong>Definition:</strong> The sale is won at Booked — date, time, scope, and price confirmed with the customer.</p>
+      <div class="rule-box"><strong>Rule</strong> A booking isn't real until date, time, scope, and price are all confirmed. Send confirmation immediately, assign the tech, send the day-before reminder.</div>
+      <div class="req-box"><strong>Requirements</strong> Date, time, scope, price on the job.</div>
+      <p class="next-line"><strong>Next stages:</strong> Completed or Cancelled only.</p>
+    </div>
+
+    <div class="stage-card won">
+      <div class="stage-head"><h3>Completed</h3><span class="pill pill-won">Won</span> <span class="pill pill-ending">Ending ✓</span></div>
+      <p><strong>Definition:</strong> Job was performed and finished.</p>
+      <div class="rule-box"><strong>Rule</strong> Not complete until payment is collected and the review request is sent. Flag for repeat/referral campaigns.</div>
+      <div class="req-box"><strong>Requirements</strong> Payment collected, review requested.</div>
+      <p class="next-line"><strong>Next stages:</strong> None — new work from this customer is a new lead.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-kicker">Closed Out</div>
+  <h2>Lost — Ending Stages</h2>
+  <p class="section-sub">These close the lead. Every lost lead must have a recorded reason — "lost" without a why teaches us nothing.</p>
+  <div class="stage-grid">
+
+    <div class="stage-card lost">
+      <div class="stage-head"><h3>Cancelled</h3><span class="pill pill-lost">Lost</span> <span class="pill pill-ending">Ending ✓</span></div>
+      <p><strong>Definition:</strong> A booked job was cancelled by the customer (or by us) before completion.</p>
+      <div class="rule-box"><strong>Rule</strong> Record the cancellation reason. If it's timing-related, don't close it — move to Book Later with a new date instead.</div>
+      <div class="req-box"><strong>Requirements</strong> Cancellation reason.</div>
+      <p class="next-line"><strong>Next stages:</strong> Book Later (timing only); otherwise terminal.</p>
+    </div>
+
+    <div class="stage-card lost">
+      <div class="stage-head"><h3>Lost to Competitor</h3><span class="pill pill-lost">Lost</span> <span class="pill pill-ending">Ending ✓</span></div>
+      <p><strong>Definition:</strong> Lead explicitly chose another company.</p>
+      <div class="rule-box"><strong>Rule</strong> Record who they chose and why (price, speed, availability). Add to long-term nurture — competitors disappoint.</div>
+      <div class="req-box"><strong>Requirements</strong> Competitor name (if known) + reason.</div>
+      <p class="next-line"><strong>Next stages:</strong> Terminal. If they come back, re-open as Follow Up.</p>
+    </div>
+
+    <div class="stage-card lost">
+      <div class="stage-head"><h3>Low/No Budget</h3><span class="pill pill-lost">Lost</span> <span class="pill pill-ending">Ending ✓</span></div>
+      <p><strong>Definition:</strong> Lead needs the service but can't afford it, or the job is below our minimum. Not a fit at current pricing.</p>
+      <div class="rule-box"><strong>Rule</strong> Before closing, offer a reduced-scope option or payment terms if available. Then close and add to nurture.</div>
+      <div class="req-box"><strong>Requirements</strong> Their budget vs. our price — the gap.</div>
+      <p class="next-line"><strong>Next stages:</strong> Terminal. If budget changes, re-open as Follow Up.</p>
+    </div>
+
+    <div class="stage-card lost">
+      <div class="stage-head"><h3>No Reply-Ghosting</h3><span class="pill pill-lost">Lost</span> <span class="pill pill-ending">Ending ✓</span></div>
+      <p><strong>Definition:</strong> We had contact or an active conversation, then the lead went silent through the full follow-up cadence.</p>
+      <div class="rule-box"><strong>Rule</strong> Send the final breakup message before closing, then add to re-engagement/nurture campaigns.</div>
+      <div class="req-box"><strong>Requirements</strong> Breakup message sent + added to nurture.</div>
+      <p class="next-line"><strong>Next stages:</strong> Terminal. If they resurface, re-open as Follow Up.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-kicker">Excluded From Metrics</div>
+  <h2>Not a Sales Opportunity</h2>
+  <p class="section-sub">Not real leads. Both are ending stages and are excluded from campaigns and lead-conversion reporting.</p>
+  <div class="stage-grid">
+
+    <div class="stage-card na">
+      <div class="stage-head"><h3>Wrong Number-Bad Call</h3><span class="pill pill-flag">Not a lead</span> <span class="pill pill-ending">Ending ✓</span></div>
+      <p><strong>Definition:</strong> Not a real lead — wrong number, misdial, spam, out of service area, or a service we don't offer.</p>
+      <div class="rule-box"><strong>Rule</strong> Close out immediately. Exclude from campaigns and lead-conversion metrics.</div>
+    </div>
+
+    <div class="stage-card na">
+      <div class="stage-head"><h3>Marketing-Sales Call</h3><span class="pill pill-flag">Not a lead</span> <span class="pill pill-ending">Ending ✓</span></div>
+      <p><strong>Definition:</strong> Inbound call was a vendor, advertiser, or salesperson pitching us — not a customer.</p>
+      <div class="rule-box"><strong>Rule</strong> Close out immediately. Exclude from campaigns and lead-conversion metrics.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ground">
+  <div class="section-kicker" style="color: var(--yellow);">The Non-Negotiables</div>
+  <h2>Ground Rules</h2>
+  <ol>
+    <li>One stage per lead, always current — update immediately after each touchpoint.</li>
+    <li>No TBDs — every new lead is contacted and re-staged the same day.</li>
+    <li>Every interim stage requires a next action and a date. Follow Up, Book Later, Seeking Approval, and Price Shopping cannot be saved without one.</li>
+    <li>Seeking Approval must resolve to one of four outcomes: Booked, Book Later, Low/No Budget, or Lost to Competitor.</li>
+    <li>A lead may only rest in an ending stage: Completed, Cancelled, Lost to Competitor, Low/No Budget, No Reply-Ghosting, Wrong Number-Bad Call, or Marketing-Sales Call.</li>
+    <li>Every lost lead gets a recorded reason; every ghosted lead gets a breakup message and goes to nurture.</li>
+    <li>Wrong Number-Bad Call and Marketing-Sales Call are excluded from conversion-rate reporting.</li>
+  </ol>
+</div>
+
+<footer>
+  <img src="https://emergencycleanings.com/wp-content/uploads/2026/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" />
+  <div>Emergency Cleanings &copy; 2026 &middot; Internal Sales Operations Reference</div>
+</footer>
+
+</body>
+</html>
